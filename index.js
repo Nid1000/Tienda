@@ -23,12 +23,7 @@ app.use((req, res, next) => {
     "";
 
   if (
-    clientIP.includes(allowedIP) || // IP autorizada
-    clientIP.includes("127.0.0.1") || // localhost
-    clientIP.includes("::1") || // IPv6 localhost
-    clientIP.includes("10.") || // redes privadas
-    clientIP.includes("172.") ||
-    clientIP.includes("192.168")
+    clientIP.includes(allowedIP) // IP autorizada
   ) {
     next();
   } else {
@@ -70,6 +65,7 @@ app.get("/register", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
+
 
 
 
